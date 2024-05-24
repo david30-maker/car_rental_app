@@ -1,14 +1,14 @@
 class ReservationsController < ApplicationController
   def new
-    @car = Cra.find(params[:car_id])
-    @reservation = @car.reservations.build
+    @car = Car.find(params[:car_id])
+    @reservation = @car.reservations.new
   end
 
   def create
     @car = Car.find(params[:reservation][:car_id])
     @reservation = @car.reservations.build(reservation_params)
     if @reservation.save
-      @car.update(availability: false)
+      @car.update(available: false)
       redirect_to @car, notice: "Successfully reserved"
     else
       render :new

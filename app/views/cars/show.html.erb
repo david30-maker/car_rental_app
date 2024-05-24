@@ -1,2 +1,7 @@
-<h1>Cars#show</h1>
-<p>Find me in app/views/cars/show.html.erb</p>
+<h1><%= @carsmake %> <%= @car.model %> (<%= @car.year %>)</h1>
+<p>
+Price per day: $<%= @car.price_per_day %>
+</p>
+<p>
+<%= link_to "Reserve this car", new_reservation_path(car_id: @car.id) %>
+</p>
