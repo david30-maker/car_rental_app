@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
-    has_many :reservation
+    has_many :reservations
 
     validates :make, :model, :year, :price_per_day, presence: true
-    validates :availability, inclusion: { in: [true, false] }
+    validates :available, inclusion: { in: [true, false] }
 end
